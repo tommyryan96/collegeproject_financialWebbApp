@@ -1,0 +1,750 @@
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    float: left;
+}
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #9932CC;
+    color: white;
+    padding: 14px 20px;
+    margin: 20px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    float: left;
+}
+.wrapper {
+    text-align: center;
+    float: left;
+}
+button:hover {
+    opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+  
+}
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+    float: left;
+}
+
+/* The Modal (background) */
+.form {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #000000;
+    padding-top: 50px;
+}
+
+span.psw {
+    float: left;
+    padding-top: 0px;
+}
+
+/* Modal Content/Box */
+.form-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    float: left;
+}
+
+
+/* Style the horizontal ruler */
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+    float: left;
+}
+ 
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+    color: #f44336;
+    cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+       width: 100%;
+       padding: 14px 20px;
+    }
+}
+* {box-sizing: border-box;}
+ul {list-style-type: none;}
+body {font-family: Verdana, sans-serif;}
+
+.month {
+    padding: 7px 20px;
+    width: 50%;
+    background: #1abc9c;
+    text-align: center;
+}
+
+.month ul {
+    margin: 0;
+    padding: 0;
+}
+
+.month ul li {
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.month .prev {
+    float: left;
+    padding-top: 10px;
+}
+
+.month .next {
+    float: right;
+    padding-top: 10px;
+}
+
+.weekdays {
+    margin: 0;  
+    font-size: 12px;
+    padding: 10px 0;
+    width: 50%;
+    background-color: #ddd;
+}
+
+.weekdays li {
+    display: inline-block;
+    width: 12.6%;
+    color: #666;
+    text-align: center;
+}
+
+.days {
+    padding: 10px 0;
+    width: 50%;
+    background: #eee;
+    margin: 0;
+}
+
+.days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 10.6%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size:12px;
+    color: #777;
+}
+
+.days li .active {
+    padding: 5px;
+    background: #1abc9c;
+    color: white !important
+}
+
+/* Add media queries for smaller screens */
+@media screen and (max-width:720px) {
+    .weekdays li, .days li {width: 13.1%;}
+}
+
+@media screen and (max-width: 420px) {
+    .weekdays li, .days li {width: 12.5%;}
+    .days li .active {padding: 2px;}
+}
+
+@media screen and (max-width: 290px) {
+    .weekdays li, .days li {width: 12.2%;}
+}
+
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #39AFD9;
+    color: white;
+    padding: 14px 20px;
+    margin: 20px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+            
+            .contain{overflow: hidden}
+            .tab{float: center;}
+            .tab-2{margin-left: 30px;margin-bottom:1000px}
+            .tab-2 input{display: block;margin-bottom: 10px}
+            tr{transition:all .25s ease-in-out}
+            tr:hover{background-color:#EEE;cursor: pointer}
+            
+
+        
+.wrapper {
+    text-align: center;
+}
+.borderexample
+{
+ width: 320px;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: 0;
+}
+
+button:hover {
+    opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+  
+}
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+}
+.container2 {
+    padding: 160px;
+}
+.container3 {
+    padding: 30px;
+}
+
+/* The Modal (background) */
+.form {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #000000;
+    padding-top: 50px;
+}
+ th {
+    border: 1px solid black;
+    border-collapse: separate;
+    border-spacing: 150px;
+}
+span.psw {
+    float: right;
+    padding-top: 0px;
+}
+
+/* Modal Content/Box */
+.form-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+
+/* Style the horizontal ruler */
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+ 
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+}
+div.relative {
+    position: relative;
+    
+    bottom:600px;
+	width : 60%;
+    
+    
+}
+.table2 {
+    border-collapse: separate;
+    border-spacing: 15px 50px;
+}
+.fixedbox {
+    width : 50%;
+  position: fixed;
+  top: 20;
+  right: 400px;
+  bottom: 300px;
+}
+.close:hover,
+.close:focus {
+    color: #1047A9;
+    cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+       width: 100%;
+       padding: 14px 20px;
+    }
+}
+* {box-sizing: border-box;}
+ul {list-style-type: none;}
+body {font-family: Verdana, sans-serif;}
+
+.month {
+    padding: 7px 20px;
+    width: 50%;
+    background: #1047A9;
+    text-align: center;
+}
+
+.month ul {
+    margin: 0;
+    padding: 0;
+}
+
+.month ul li {
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.month .prev {
+    float: left;
+    padding-top: 10px;
+}
+
+.month .next {
+    float: right;
+    padding-top: 10px;
+}
+
+.weekdays {
+    margin: 0;  
+    font-size: 12px;
+    padding: 10px 0;
+    width: 50%;
+    background-color: #ddd;
+}
+
+.weekdays li {
+    display: inline-block;
+    width: 12.6%;
+    color: #666;
+    text-align: center;
+}
+
+.days {
+    padding: 10px 0;
+    width: 50%;
+    background: #eee;
+    margin: 0;
+}
+
+.days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 10.6%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size:12px;
+    color: #777;
+}
+
+.days li .active {
+    padding: 5px;
+    background: #1abc9c;
+    color: white !important
+}
+
+/* Add media queries for smaller screens */
+@media screen and (max-width:720px) {
+    .weekdays li, .days li {width: 13.1%;}
+}
+
+@media screen and (max-width: 420px) {
+    .weekdays li, .days li {width: 12.5%;}
+    .days li .active {padding: 2px;}
+}
+
+@media screen and (max-width: 290px) {
+    .weekdays li, .days li {width: 12.2%;}
+}
+
+#cal { 
+	top : 0;
+    -moz-box-shadow:0px 3px 3px rgba(0, 0, 0, 0.25); 
+    -webkit-box-shadow:0px 3px 3px rgba(0, 0, 0, 0.25); 
+    margin:50px auto; 
+    font: 13px/1.5 "Helvetica Neue", Helvatica, Arial, san-serif; 
+    display:table; 
+}
+#cal .header { 
+    cursor:default; 
+    background: #1047A9; 
+    background: -moz-linear-gradient(top, #1047A9, #1047A9); 
+    background: -webkit-gradient(linear, left top, left bottom, from(#1047A9), to(#1047A9)); 
+    height: 34px; 
+    position: relative; 
+    color:#fff; 
+    -webkit-border-top-left-radius: 5px; 
+    -webkit-border-top-right-radius: 5px; 
+    -moz-border-radius-topleft: 5px; 
+    -moz-border-radius-topright: 5px; 
+    border-top-left-radius: 5px; 
+    border-top-right-radius: 5px; 
+    font-weight:bold; 
+    text-shadow:0px -1px 0 #1047A9; 
+    text-transform: uppercase; 
+} 
+#cal .header span { 
+    display:inline-block; 
+    line-height:34px; 
+}
+#cal .header .hook { 
+    width: 9px; 
+    height: 28px; 
+    position: absolute; 
+    bottom:60%; 
+    border-radius:10px; 
+    -moz-border-radius:10px; 
+    -webkit-border-radius:10px; 
+    background:#ececec; 
+    background: -moz-linear-gradient(right top, #fff, #827e7d); 
+    background: -webkit-gradient(linear, right top, right bottom, from(#fff), to(#827e7d)); 
+    box-shadow:0px -1px 2px rgba(0, 0, 0, 0.65 ); 
+    -moz-box-shadow:0px -1px 2px rgba(0, 0, 0, 0.65 ); 
+    -webkit-box-shadow:0px -1px 2px rgba(0, 0, 0, 0.65 ); 
+} 
+.right.hook { 
+    right:15%; 
+} 
+.left.hook { 
+    left: 15%; 
+}
+
+#cal .header .button { 
+    width:24px; 
+    text-align:center; 
+    position:absolute; 
+} 
+#cal .header .left.button { 
+    left:0; 
+    -webkit-border-top-left-radius: 5px; 
+    -moz-border-radius-topleft: 5px; 
+    border-top-left-radius: 5px; 
+    border-right:1px solid #29477F; 
+} 
+#cal .header .right.button { 
+    right:0; 
+    top:0; 
+    border-left:1px solid #29477F; 
+    -webkit-border-top-right-radius: 5px; 
+    -moz-border-radius-topright: 5px; 
+    border-top-right-radius: 5px; 
+} 
+#cal .header .button:hover { 
+    background: -moz-linear-gradient(top, #4577D4, #4577D4); 
+    background: -webkit-gradient(linear, left top, left bottom, from(#4577D4), to(#4577D4)); 
+}
+#cal .header .month-year { 
+    letter-spacing: 1px; 
+    width: 100%; 
+    text-align: center; 
+}
+#cal table { 
+    background:#fff; 
+    border-collapse:collapse; 
+} 
+#cal td { 
+    color:#2b2b2b; 
+    width:30px; 
+    height:30px; 
+    line-height:30px; 
+    text-align:center; 
+    border:1px solid #e6e6e6; 
+    cursor:default; 
+} 
+#cal #days td { 
+    height:26px; 
+    line-height: 26px; 
+    text-transform:uppercase; 
+    font-size:90%; 
+    color:#9e9e9e; 
+} 
+#cal #days td:not(:last-child) { 
+    border-right:1px solid #fff; 
+}
+#cal #cal-frame td.today { 
+    background:#ededed; 
+    color:#8c8c8c; 
+    box-shadow:1px 1px 0px #fff inset; 
+    -moz-box-shadow:1px 1px 0px #fff inset; 
+    -webkit-box-shadow:1px 1px 0px #fff inset; 
+} 
+#cal #cal-frame td:not(.nil):hover { 
+    color:#fff; 
+    text-shadow: #6C1A07 0px -1px; 
+    background:#4577D4; 
+    background: -moz-linear-gradient(top, #4577D4, #4577D4); 
+    background: -webkit-gradient(linear, left top, left bottom, from(#4577D4), to(#4577D4)); 
+    -moz-box-shadow:0px 0px 0px; 
+    -webkit-box-shadow:0px 0px 0px; 
+}
+#cal #cal-frame td span { 
+    font-size:80%; 
+    position:relative; 
+} 
+#cal #cal-frame td span:first-child { 
+    bottom:5px; 
+} 
+#cal #cal-frame td span:last-child { 
+    top:5px; 
+}
+#cal #cal-frame table.curr { 
+    float:left;      
+} 
+#cal #cal-frame table.temp { 
+    position:absolute; 
+}
+
+/*Sharon's*/
+div.relt {
+    position: relative;
+    bottom: 653px;
+    width: 70%;
+    left: 10px;
+    margin: 10px;
+    display: inline-block;
+    text-align: center;
+  }
+  div.real {
+    position: relative;
+    bottom: 600px;
+    width: 70%;
+    left: 10px;
+    margin: 10px;
+    display: inline-block;
+    text-align: center;
+  }
+  
+  div.whatever{
+position : relative;
+bottom: 500px;
+width: 70%;
+left: 10px;
+margin: 10px;
+display: inline-block;
+text-align: center;
+font-size: x-large;
+}
+ /* Irvin's */
+  div.whatever{
+position : relative;
+bottom: 500px;
+width: 70%;
+left: 10px;
+margin: 10px;
+display: inline-block;
+text-align: center;
+font-size: x-large;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  position: middle;
+}
+
+td.t {
+  border: 2px solid black;
+  text-align: left;
+  padding: 8px;
+}
+td.tick {
+	position: absolute;
+	padding: 8px;
+}
+th.th {
+	border: 0px solid black;
+  text-align: left;
+  padding: 8px;
+}
+th {
+	border: 2px solid black;
+  text-align: center;
+  padding: 8px;
+}
+
+/* Customize the label (the container) css for check box*/
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #ddd;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: green;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* css for add row button */
+button.b{
+	background-color: #39AFD9;
+    color: white;
+    padding: 14px 20px;
+    margin: 20px 0;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    opacity: 0.9;
+    float: none;
+}
+</style>

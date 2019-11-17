@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<body>
+<link rel="stylesheet" type="text/css" href="appstyle.css"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<body bgcolor="#F1F1F5">
+
+<h2><font face="verdana" style="color:#223A5E";><center> Settings </center></h2>
+
+<table>
+ 
+  <tr>
+ <form class="form-content animate" action="home.html" >
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Home</button></td>
+ </form>
+  </tr>
+  
+<tr>
+<form class="form-content animate" action="income.html" >
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Income</button></td>
+</form>
+  </tr>
+  
+  <tr>
+  <form class="form-content animate" action="expenditure.html" >
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Expenditure</button></td>
+    </form>
+  </tr>
+
+   <tr>
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Goals</button></td>
+  </tr>
+  
+  <tr>
+  <form class="form-content animate" action="analytics.html" >
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Analytics</button></td>
+  </form>
+  </tr>
+  
+  <tr>
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Tips</button></td>
+  </tr>
+  
+  <tr>
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Settings</button></td>
+  </tr>
+</table>
+
+
+<center><div id="reset_div" class ="re" align="center">
+  <p>Change email</p>
+    <input type="email_reset" placeholder="Reset email" id="email-reset_field" />
+    
+    <button algin="center" onclick="reset_email()">Reset email</button>
+    
+    <p>Change password</p>
+    <input type="password_reset" placeholder="Reset password" id="password-reset_field" />
+
+    <button algin="center"  onclick="reset_password()">Reset password</button>
+
+</div></center>
+
+
+</body>
+</head>
+</html>

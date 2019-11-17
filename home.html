@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+<link rel="stylesheet" type="text/css" href="appstyle.css"/>
+
+<body>
+<body bgcolor="#F1F1F5">
+
+<h2 id="welcome"><font face="verdana" style="color:#223A5E";><center> Welcome User</center></h2>
+<table>
+  <tr>
+  </tr>
+  <tr>
+ <form class="form-content animate" action="home.html" >
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Home</button></td>
+ </form>
+  </tr>
+  <tr>
+<form class="form-content animate" action="income.html" >
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Income</button>
+</form>
+</td>
+
+  
+  </tr>
+  <tr>
+<form class="form-content animate" action="expenditure.html" >
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Expenditure</button></td>
+    </form>
+  </tr>
+
+   <tr>
+     <form class="form-content animate" action="goals.html" >
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Goals</button></td>
+	</form>
+  </tr>
+  <tr>
+  <form class="form-content animate" action="analytics.html" >
+  
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Analytics</button></td>
+  </form>
+  </tr>
+  <tr>
+    <form class="form-content animate" action="tips.html" >
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">tips</button></td>
+	</form>
+  </tr>
+  <tr>
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Setting</button></td>
+  </tr>
+  <div id="user_div" >
+      <tr>
+    <td><button onclick="logout()" style="width: 150px">Logout</button></td>
+  </tr>
+  </div>
+</table>
+<center><div class="relative" >
+<table id="table2">
+
+  <tr>
+ 
+  <th>Income <br> &euro;100<br/></th>
+  <th>	Expenditure<br> &euro;100<br/></th> <th>Spare cash<br> &euro;100<br/></th>
+  
+ </tr>
+
+
+ 
+</table> </div>
+</center>
+<div class="fixedbox">
+<div id="cal"> 
+    <div class="header"> 
+
+  <span class="left button" id="prev"> &lang; </span> 
+<span class="left hook"></span> 
+<span class="month-year" id="label"> December 2018 </span> 
+<span class="right hook"></span> 
+<span class="right button" id="next"> &rang; </span>
+    
+	</div>
+	
+    <table id="days"> 
+ <td>sun</td> 
+<td>mon</td> 
+<td>tue</td> 
+<td>wed</td> 
+<td>thu</td> 
+<td>fri</td> 
+<td>sat</td>
+ 
+    </table> 
+	
+    <div id="cal-frame">
+	
+ <table class="curr"> 
+    <tbody> 
+        <tr><td class="nil"></td><td class="nil"></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr> 
+        <tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td class="today">11</td><td>12</td></tr> 
+        <tr><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td></tr> 
+        <tr><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td></tr> 
+        <tr><td>27</td><td>28</td><td>29</td><td>30</td><td class="nil"></td><td class="nil"></td><td class="nil"></td></tr> 
+    </tbody> </div>
+	</div>
+</table>
+
+</div>
+<script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
+<script src="script.js"></script>
+
+<script>
+
+var CALENDAR = function () { 
+	    var wrap, label,  
+	            months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]; 
+ 
+	    function init(newWrap) { 
+ wrap     = $(newWrap || "#cal"); 
+	label    = wrap.find("#label"); 
+	wrap.find("#prev").bind("click.calendar", function () { switchMonth(false); }); 
+	wrap.find("#next").bind("click.calendar", function () { switchMonth(true);  }); 
+	label.bind("click", function () { switchMonth(null, new Date().getMonth(), new Date().getFullYear()); });        
+	label.click();
+	    } 
+ 
+	    function switchMonth(next, month, year) { 
+  
+	var curr = label.text().trim().split(" "), calendar, tempYear =  parseInt(curr[1], 10); 
+	month = month || ((next) ? ( (curr[0] === "December") ? 0 : months.indexOf(curr[0]) + 1 ) : ( (curr[0] === "January") ? 11 : months.indexOf(curr[0]) - 1 )); 
+	year = year || ((next && month === 0) ? tempYear + 1 : (!next && month === 19) ? tempYear - 1 : tempYear);
+if (!month) { 
+	    if (next) { 
+	        if (curr[0] === "December") { 
+	            month = 0; 
+	        } else { 
+	            month = months.indexOf(curr[0]) + 1; 
+	        } 
+	    } else { 
+	        if (curr[0] === "January") { 
+	            month = 11; 
+	        } else { 
+	            month = months.indexOf(curr[0]) - 1; 
+	        } 
+	    } 
+	}
+if (!year) { 
+	    if (next && month === 0) { 
+	        year = tempYear + 1; 
+	    } else if (!next && month === 11) { 
+	        year = tempYear - 1; 
+	    } else { 
+	        year = tempYear; 
+	    } 
+	}
+    calendar =  createCal(year, month); 
+	        $("#cal-frame", wrap) 
+	            .find(".curr") 
+	                .removeClass("curr") 
+	                .addClass("temp") 
+	            .end() 
+	            .prepend(calendar.calendar()) 
+	            .find(".temp") 
+	                .fadeOut("slow", function () { $(this).remove(); }); 
+ 
+	        $('#label').text(calendar.label);
+	    } 
+ 
+	    function createCal(year, month) { 
+  { 
+	        calendar : function () { /* returns a jquery object of the calendar */ }, 
+	        label    : "Month Year" 
+	    }
+       
+	var day = 1, i, j, haveDays = true,  
+	        startDay = new Date(year, month, day).getDay(), 
+	        daysInMonths = [31, (((year%4==0)&&(year%100!=0))||(year%400==0)) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31], 
+	        calendar = [];
+if (createCal.cache[year]) { 
+	    if (createCal.cache[year][month]) { 
+	        return createCal.cache[year][month]; 
+	    } 
+	} else { 
+	    createCal.cache[year] = {}; 
+	}
+
+	i = 0; 
+	while (haveDays) { 
+	    calendar[i] = []; 
+	    for (j = 0; j < 7; j++) { 
+	        if (i === 0) { 
+	            if (j === startDay) { 
+	                calendar[i][j] = day++; 
+	                startDay++; 
+	            } 
+	        } else if (day <= daysInMonths[month]) { 
+	            calendar[i][j] = day++; 
+	        } else { 
+	            calendar[i][j] = ""; 
+	            haveDays = false; 
+	        } 
+	        if (day > daysInMonths[month]) { 
+	            haveDays = false; 
+	        } 
+	    } 
+	    i++; 
+	}
+  if (calendar[5]) { 
+	    for (i = 0; i < calendar[5].length; i++) { 
+	        if (calendar[5][i] !== "") { 
+	            calendar[4][i] = "<span>" + calendar[4][i] + "</span><span>" + calendar[5][i] + "</span>"; 
+	        } 
+	    } 
+      
+	    calendar = calendar.slice(0, 5);
+      
+	}
+  for (i = 0; i < calendar.length; i++) { 
+	    calendar[i] = "<tr><td>" + calendar[i].join("</td><td>") + "</td></tr>"; 
+	} 
+	calendar = $("<table>" + calendar.join("") + "</table>").addClass("curr"); 
+ 
+	$("td:empty", calendar).addClass("nil"); 
+	if (month === new Date().getMonth()) { 
+	    $('td', calendar).filter(function () { return $(this).text() === new Date().getDate().toString(); }).addClass("today"); 
+	} 
+	createCal.cache[year][month] = { calendar : function () { return calendar.clone() }, label : months[month] + " " + year }; 
+ 
+	return createCal.cache[year][month];
+	    } 
+	    createCal.cache = {}; 
+	    return { 
+	        init : init, 
+	        switchMonth : switchMonth, 
+	        createCal   : createCal 
+	    }; 
+	};
+	
+	
+</script>
+<script>
+
+var elem = document.getElementById("Welcome");
+  elem.innerHTML = "Welcome";
+
+</script>
+</body>
+</html>

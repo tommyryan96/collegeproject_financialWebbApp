@@ -1,0 +1,39 @@
+<html>
+<head>
+  <title>Firebase Login</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="login_div" class="main-div" align="left">
+    <h3 align="middle">CS353 Project Group 4</h3>
+    <input type="email" placeholder="Email" id="email_field" />
+    <input type="password" placeholder="Password" id="password_field" />
+
+    <button onclick="login();writeUserData();">LOGIN</button> 
+	
+	<h1 align="middle" >Sign Up</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+	  <label for="email"><b>Name</b></label>
+      <input type="text" placeholder="Enter Name" name="n" id="n" required>
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" id="user_name" required>
+      <label for="email"><b>Password</b></label>
+      <input type="password" placeholder="Enter password" name="psw" id="psw" required>
+	  <button  onclick="save_user();" /> SIGNUP </button>
+	
+  </div>
+
+  <div id="user_div" class="loggedin-div">
+  <!--<a href="home.html">-->
+    <h3>Welcome User</h3>
+    <p id="user_para">Welcome to Financial Tracker. You're currently logged in.</p>
+    <button onclick="logout()">Logout</button>
+  </div>
+  <script>var firebase = null;</script>
+<script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
+</body>
+<script src="script.js"></script>
+</html>

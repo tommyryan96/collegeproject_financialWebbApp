@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<body>
+<link rel="stylesheet" type="text/css" href="appstyle.css"/ >
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<body bgcolor="#F1F1F5">
+
+<h2><font face="verdana" style="color:#223A5E";><center> Goals </center></h2>
+<table>
+  <tr>
+  </tr>
+  
+  <tr>
+ <form class="form-content animate" action="home.html" >
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Home</button></td>
+ </form>
+  </tr>
+  
+  <tr>
+<form class="form-content animate" action="income.html" >
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Income</button>
+</form>
+</td>
+  </tr>
+  
+  <tr>
+  <form class="form-content animate" action="expenditure.html" >
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Expenditure</button></td>
+    </form>
+  </tr>
+
+   <tr>
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Goals</button></td>
+  </tr>
+  
+  <tr>
+  <form class="form-content animate" action="analytics.html" >
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Analytics</button></td>
+  </form>
+  </tr>
+  
+  <tr>
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Tips</button></td>
+  </tr>
+  
+  <tr>
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Setting</button></td>
+  </tr>
+</table>
+
+</div>
+<!-- code for table -->
+<center><div class = "real">
+  
+<table id ="t">
+  <tr class= "t">
+    <th>Goals</th>
+  </tr
+  <tr class= "t">
+    <td class= "t">Save Money for Car</td>
+    <td class= "tick"><label class="container">
+  <input type="checkbox" checked="checked">
+  <span class="checkmark"></span>
+</label></td>
+    
+  </tr>
+  <tr >
+    <td class= "t">Only spend 200 euro this month</td>
+    <td class= "tick"><label class="container">
+  <input type="checkbox" checked="checked">
+  <span class="checkmark"></span>
+</label></td>
+    
+  </tr>
+  <tr>
+    <td class= "t">Minimize use of electricity</td>
+    <td class= "tick"><label class="container">
+  <input type="checkbox" checked="checked">
+  <span class="checkmark"></span>
+</label></td>
+    
+  </tr>
+  <tr>
+    <td class= "t">Don't spend money on fast food this month</td>
+    <td class= "tick"><label class="container">
+  <input type="checkbox" checked="checked">
+  <span class="checkmark"></span>
+</label></td>
+    
+  </tr>
+  <tr>
+    <td class= "t">Reduce water bill</td>
+    <td class= "tick"><label class="container">
+  <input type="checkbox" checked="checked">
+  <span class="checkmark"></span>
+</label></td>
+    
+  </tr>
+  <tr>
+    <td class= "t">Save money for holiday</td>
+    <td class= "tick"><label class="container">
+  <input type="checkbox" checked="checked">
+  <span class="checkmark"></span>
+</label></td>
+    
+  </tr>
+</table>
+</div></center>
+<center><div class ="real">
+<button class="b" onClick="addRow();">Add Rows</button>
+</div> </center>
+</body>
+<script>
+//code for add row button
+function addRow() {
+  var table = document.getElementById("t");
+  var row = table.insertRow(table.rows.length);
+  for (var i = 0; i < table.rows[0].cells.length; i++) {
+    var cell = row.insertCell(i);
+    cell.innerHTML = "-";
+    if (i > 1) {
+      cell.setAttribute("Class", "t")
+    }
+  }
+}
+</script>
+</head>
+</html>

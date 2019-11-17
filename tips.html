@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<body>
+<link rel="stylesheet" type="text/css" href="appstyle.css"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<body bgcolor="#F1F1F5">
+
+<h2><font face="verdana" style="color:#223A5E";><center> Tips </center></h2>
+
+<table>
+ 
+  <tr>
+ <form class="form-content animate" action="home.html" >
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Home</button></td>
+ </form>
+  </tr>
+  
+<tr>
+<form class="form-content animate" action="income.html" >
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Income</button></td>
+</form>
+  </tr>
+  
+  <tr>
+  <form class="form-content animate" action="expenditure.html" >
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Expenditure</button></td>
+    </form>
+  </tr>
+
+   <tr>
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Goals</button></td>
+  </tr>
+  
+  <tr>
+  <form class="form-content animate" action="analytics.html" >
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Analytics</button></td>
+  </form>
+  </tr>
+  
+  <tr>
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Tips</button></td>
+  </tr>
+  
+  <tr>
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Setting</button></td>
+  </tr>
+        <tr>
+    <td><button onclick="logout()" style="width: 150px">Logout</button></td>
+  </tr>
+</table>
+
+<center><p>
+<a href="https://www.ccpc.ie/consumers/money/budgeting/money-saving-tips/">More tips</a>
+</p></center>
+
+<center><div id = "changeText" class = "whatever">
+</div></center>
+
+</body>
+<script>
+var text = ["Establish your budget. Are you looking for an easy way to begin? On the first day of a new month, get a receipt for everything you purchase. Stack the receipts into categories like restaurants, groceries, and personal care. At the end of the month you will be able to clearly see where your money is going.", 
+"Aim for short-term savings goals. Make a goal such as setting aside $20 a week or month, rather than a longer term savings goal. People save more successfully when they keep short-term goals in sight.", 
+"Save your loose change. Really! Putting aside just 50¢ over a year will get you 40 percent of the way to a $500 emergency fund. And some banks and credit unions or apps offer programs that round all your purchases to the nearest dollar and put that money into a separate savings account."];
+var counter = 2;
+var elem = document.getElementById("changeText");
+change();
+var inst = setInterval(change, 8000);
+
+function change() {
+  elem.innerHTML = text[counter];
+  counter++;
+  if (counter >= text.length) {
+    counter = 0;
+    // clearInterval(inst); // uncomment this if you want to stop refreshing after one cycle
+  }
+}
+</script>
+
+</head>
+</html>
+

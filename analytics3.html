@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<link rel="stylesheet" type="text/css" href="appstyle.css"/>
+
+<body>
+<body bgcolor="#F1F1F5">
+
+<h2><font face="verdana" style="color:#223A5E";><center> Analytics</center></h2>
+	<div style = "float:left">					  
+<table>
+  <tr>
+  </tr>
+  <tr>
+ <form class="form-content animate" action="home.html" >
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Home</button></td>
+ </form>
+  </tr>
+  <tr>
+<form class="form-content animate" action="income.html" >
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Income</button>
+</form>
+</td>
+
+  
+  </tr>
+  <tr>
+  <form class="form-content animate" action="expenditure.html" >
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Expenditure</button></td>
+ 
+  </form></tr>
+  </form>
+  </tr>
+   <tr>
+   
+   <form class="form-content animate" action="goals.html" >
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Goals</button></td>
+	</form>
+  </tr>
+  <tr>
+  <form class="form-content animate" action="analytics.html" >
+  
+    
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Analytics</button></td>
+  </form>
+  </tr>
+  <tr>
+  <form class="form-content animate" action="tips.html" >
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">tips</button></td>
+	</form>
+  </tr>
+  <tr>
+    <td><button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Setting</button></td>
+  </tr>
+      <tr>
+    <td><button onclick="logout()" style="width: 150px">Logout</button></td>
+  </tr>
+</table>
+</div>
+<div class="container" class="relative">
+            <div class="tab tab-1">
+			<center>
+<table id="table">
+    <form  action="analytics.html">
+    <button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Income</button>
+</form>
+	 <form  action="analytics2.html" >
+	 <button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Expenditure</button>
+	 
+	 </form>
+	  <form action="analytics3.html" >
+	  <button onclick="document.getElementById('login').style.display='block'" style="width: 150px">Compare</button>
+	  </form>
+	
+ 
+ </table>
+ </center>
+	
+  </div></div>
+
+<div class="container2" class="relative">
+<div class="tab tab-2">
+<center>
+<form>
+<div id="piechart"></div>
+</form>
+</center>
+</div></div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Compare', 'Money'],
+  ['Income', 8],
+  ['Expenditure', 2],
+ 
+  
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Compare', 'width':550, 'height':400};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+</script>
+
+
+</body>
+<script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
+<script src="script.js"></script>
+</html>
